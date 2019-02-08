@@ -63,6 +63,15 @@ test('decode basic', t => {
   t.end()
 })
 
+test('decode array', t => {
+  const str = '{"foo":"bar","baz":{"type":"Buffer","data":[98,117,122]}}'
+  const buf = Buffer.from(str)
+  const decoded = decode(buf)
+  t.deepEqual(decoded, { foo: 'bar', baz: Buffer.from('buz') })
+  t.is(decode.bytes, str.length)
+  t.end()
+})
+
 test('decode start', t => {
   const str = '{"foo":"bar","baz":{"type":"Buffer","data":"base64:YnV6"}}'
   const buf = Buffer.alloc(str.length + 8)

@@ -1,12 +1,19 @@
 {
   "name": "buffer-json-encoding",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "An abstract-encoding compatible JSON encoder/decoder that properly encodes/decodes buffers.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test.js"
   },
-  "keywords": [],
+  "keywords": [
+    "json",
+    "json-buffer",
+    "buffer",
+    "abstract-encoding",
+    "encode",
+    "decode"
+  ],
   "author": "harry lachenmayer <harrylachenmayer@gmail.com>",
   "license": "ISC",
   "dependencies": {
