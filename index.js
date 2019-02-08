@@ -25,4 +25,8 @@ function decode(buf, start, end) {
   return JSON.parse(str, bufferJson.reviver)
 }
 
-module.exports = { encode, decode }
+function encodingLength(obj) {
+  return encode(obj).length
+}
+
+module.exports = { encode, decode, encodingLength }

@@ -1,6 +1,6 @@
 const test = require('tape')
 
-const { encode, decode } = require('.')
+const { encode, decode, encodingLength } = require('.')
 
 test('encode basic', t => {
   const buf = encode({ foo: 'bar', baz: Buffer.from('buz') })
@@ -78,5 +78,11 @@ test('decode start + end', t => {
   buf.write(str, 8)
   const decoded = decode(buf, 8, str.length + 8)
   t.deepEqual(decoded, { foo: 'bar', baz: Buffer.from('buz') })
+  t.end()
+})
+
+test('encoding length', t => {
+  const str = '{"foo":"bar","baz":{"type":"Buffer","data":"base64:YnV6"}}'
+  t.is(encodingLength({ foo: 'bar', baz: Buffer.from('buz') }), str.length)
   t.end()
 })
