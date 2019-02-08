@@ -16,4 +16,13 @@ function encode(obj, buf, offset = 0) {
   return buf
 }
 
-module.exports = { encode }
+function decode(buf, start, end) {
+  start = start || 0
+  end = end || buf.length
+  const sliced = buf.slice(start, end)
+  const str = sliced.toString('utf8')
+  decode.bytes = end - start
+  return JSON.parse(str, bufferJson.reviver)
+}
+
+module.exports = { encode, decode }
