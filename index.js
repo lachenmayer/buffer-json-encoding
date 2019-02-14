@@ -1,7 +1,7 @@
-const bufferJson = require('buffer-json')
+const BJSON = require('@lachenmayer/buffer-json')
 
 function encode(obj, buf, offset = 0) {
-  const str = JSON.stringify(obj, bufferJson.replacer)
+  const str = BJSON.stringify(obj)
   if (typeof buf === 'number') {
     offset = buf
     buf = Buffer.alloc(offset + str.length)
@@ -22,7 +22,7 @@ function decode(buf, start, end) {
   const sliced = buf.slice(start, end)
   const str = sliced.toString('utf8')
   decode.bytes = end - start
-  return JSON.parse(str, bufferJson.reviver)
+  return BJSON.parse(str)
 }
 
 function encodingLength(obj) {

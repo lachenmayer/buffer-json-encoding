@@ -1,6 +1,6 @@
 {
   "name": "buffer-json-encoding",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "An abstract-encoding compatible JSON encoder/decoder that properly encodes/decodes buffers.",
   "main": "index.js",
   "scripts": {
@@ -17,7 +17,7 @@
   "author": "harry lachenmayer <harrylachenmayer@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "buffer-json": "^1.0.0"
+    "@lachenmayer/buffer-json": "^1.0.1"
   },
   "devDependencies": {
     "tape": "^4.9.2"
