@@ -4,7 +4,7 @@
   "description": "An abstract-encoding compatible JSON encoder/decoder that properly encodes/decodes buffers.",
   "main": "index.js",
   "scripts": {
-    "test": "node test.js"
+    "test": "standard --fix && node test.js"
   },
   "keywords": [
     "json",
@@ -20,6 +20,7 @@
     "@lachenmayer/buffer-json": "^1.0.1"
   },
   "devDependencies": {
+    "standard": "^12.0.1",
     "tape": "^4.9.2"
   }
 }

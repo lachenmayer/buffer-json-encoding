@@ -10,6 +10,15 @@ test('encode basic', t => {
   t.end()
 })
 
+test('encode utf8', t => {
+  const buf = encode({ mood: '🤙', moji: Buffer.from('🤙') })
+  const expected =
+    '{"mood":"🤙","moji":{"type":"Buffer","data":"base64:8J+kmQ=="}}'
+  t.is(buf.toString(), expected)
+  t.is(encode.bytes, Buffer.byteLength(expected, 'utf8'))
+  t.end()
+})
+
 test('encode with given buffer', t => {
   const buf = Buffer.alloc(100)
   const encoded = encode({ foo: 'bar', baz: Buffer.from('buz') }, buf)
@@ -60,6 +69,15 @@ test('decode basic', t => {
   const decoded = decode(buf)
   t.deepEqual(decoded, { foo: 'bar', baz: Buffer.from('buz') })
   t.is(decode.bytes, str.length)
+  t.end()
+})
+
+test('decode utf8', t => {
+  const str = '{"mood":"🤙","moji":{"type":"Buffer","data":"base64:8J+kmQ=="}}'
+  const buf = Buffer.from(str)
+  const decoded = decode(buf)
+  t.deepEqual(decoded, { mood: '🤙', moji: Buffer.from('🤙') })
+  t.is(decode.bytes, Buffer.byteLength(str, 'utf8'))
   t.end()
 })
 
