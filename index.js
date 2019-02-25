@@ -1,4 +1,4 @@
-const BJSON = require('@lachenmayer/buffer-json')
+const BJSON = require('buffer-json')
 
 function encode (obj, buf, offset = 0) {
   const str = BJSON.stringify(obj)
