@@ -1,6 +1,6 @@
 {
   "name": "buffer-json-encoding",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An abstract-encoding compatible JSON encoder/decoder that properly encodes/decodes buffers.",
   "main": "index.js",
   "scripts": {
